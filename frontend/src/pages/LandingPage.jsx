@@ -2,6 +2,14 @@ import React, { useState , useRef, useEffect} from "react";
 // Using Lucide icons for social media
 import { Linkedin, Instagram, Twitter } from "lucide-react"; 
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay  } from "swiper/modules"; 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+
+
 // --- MINIMAL MOCK DEFINITIONS FOR RUNNABILITY ---
 const useNavigate = () => (path) => console.log(`Navigating to: ${path}`);
 const useAuth = () => ({ user: null }); // Mock user to test both login/dashboard states
@@ -140,6 +148,8 @@ const HorizontalCarousel = ({ items, itemRenderer, speed = 40, className = "" })
 
 
 
+
+
 // --- MAIN PAGE ---
 const LandingPage = () => { 
   const navigate = useNavigate(); 
@@ -197,6 +207,20 @@ className="h-16 md:h-18 w-auto object-contain opacity-100 transition-opacity dur
   );
 
 
+useEffect(() => {
+  const track = document.getElementById("testimonial-track");
+  if (!track) return;
+  let index = 0;
+  const slide = () => {
+    index = (index + 1) % 2; // since we have 5 videos → (0→1→0)
+    const offset = -index * 100; // 100% shift per slide
+    track.style.transform = `translateX(${offset}%)`;
+  };
+  const interval = setInterval(slide, 4000); // every 4s
+  return () => clearInterval(interval);
+}, []);
+
+
   return ( 
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 font-inter relative overflow-x-hidden"> 
        
@@ -250,61 +274,102 @@ className="h-16 md:h-18 w-auto object-contain opacity-100 transition-opacity dur
 </section>
 */}
 
-
 {/* 3. TESTIMONIALS SECTION */}
 <section className="py-10 bg-gradient-to-r from-orange-50 to-orange-100 border-t border-gray-200">
   <h3 className="text-2xl md:text-3xl font-poppins font-bold text-center text-gray-800 mb-8">
     Voices That Inspire
   </h3>
 
-  <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6">
-    {[
-      {
-        src: "https://www.youtube.com/embed/JpCDJmvy81c?controls=1&modestbranding=1&showinfo=0&rel=0",
-        title: "Guiding the Future",
-        desc: "A mentor’s view on shaping young talent into future leaders."
-      },
-      {
-        src: "https://www.youtube.com/embed/sHi2MgKtr7U?controls=1&modestbranding=1&showinfo=0&rel=0",
-        title: "IIM Student Experience",
-        desc: "An IIM student shares how real internships built real confidence."
-      },
-      {
-        src: "https://www.youtube.com/embed/R-Ha7OwBJkk?controls=1&modestbranding=1&showinfo=0&rel=0",
-        title: "Career Growth",
-        desc: "When opportunity meets mentorship, transformation begins."
-      },
-      {
-        src: "https://www.youtube.com/embed/31Ip3STqkeo?controls=1&modestbranding=1&showinfo=0&rel=0",
-        title: "Journey Beyond Limits",
-        desc: "Dream big. Start small. Learn and grow with the right support."
-      }
-    ].map((video, i) => (
-      <div
-        key={i}
-        className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-      >
-        {/* Video Embed (Smaller Aspect Ratio) */}
-        <div className="aspect-[4/3] overflow-hidden">
-          <iframe
-            width="100%"
-            height="100%"
-            src={video.src}
-            title={video.title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="rounded-t-2xl scale-105 hover:scale-100 transition-transform duration-500"
-          ></iframe>
-        </div>
+  <div className="max-w-6xl mx-auto px-6">
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      spaceBetween={20}
+      slidesPerView={1}
+      slidesPerGroup={1}
+      navigation
+      pagination={{ clickable: true }}
+      loop={true}
+      speed={1000}
+      autoplay={{ delay: 4500, disableOnInteraction: false }}
+      breakpoints={{
+        640: { slidesPerView: 1, slidesPerGroup: 1 },
+        768: { slidesPerView: 2, slidesPerGroup: 2 },
+        1024: { slidesPerView: 3, slidesPerGroup: 3 },
+      }}
+      onSwiper={(swiper) => (window.swiperInstance = swiper)}
+    >
+      {[
+        {
+          src: "https://www.youtube.com/embed/sHi2MgKtr7U?controls=1&modestbranding=1&rel=0",
+          title: "IIM Student Experience",
+          desc: "See how impactful internships turn learning into leadership and opportunity."
+        },
+        {
+          src: "https://www.youtube.com/embed/5ssoQQ6ypJ4?controls=1&modestbranding=1&rel=0",
+          title: "IIM Perspective",
+          desc: "Discover how mentorship and real-world projects with us drive growth and confidence."
+        },
+        {
+          src: "https://www.youtube.com/embed/R-Ha7OwBJkk?controls=1&modestbranding=1&rel=0",
+          title: "Career Growth",
+          desc: "When opportunity meets mentorship, transformation begins."
+        },
+        {
+          src: "https://www.youtube.com/embed/fr4XTXQE0u0?controls=1&modestbranding=1&rel=0",
+          title: "IIM Learner Insights",
+          desc: "Listen to an IIM student share his learnings and real-world exposure through InternSaathi."
+        },
+        {
+          src: "https://www.youtube.com/embed/uVxFhLa3YXo?controls=1&modestbranding=1&rel=0",
+          title: "IMI Bhubaneswar",
+          desc: "IMI student shares her enriching internship experience and growth journey."
+        },
+        {
+          src: "https://www.youtube.com/embed/31Ip3STqkeo?controls=1&modestbranding=1&rel=0",
+          title: "Journey Beyond Limits",
+          desc: "Dream big. Start small. Learn and grow with the right support."
+        },
 
-        {/* Text Content */}
-        <div className="p-4 text-center">
-          <h4 className="font-semibold text-gray-900 text-base mb-1">{video.title}</h4>
-          <p className="text-sm text-gray-600 leading-snug">{video.desc}</p>
-        </div>
-      </div>
-    ))}
+        {
+          src: "https://www.youtube.com/embed/SgAiarMEWAk?controls=1&modestbranding=1&rel=0",
+          title: "IMI Placement Journey",
+          desc: "Discover how InternSaathi guided IMI students towards successful PPO offers and career breakthroughs."
+        },
+        {
+          src: "https://www.youtube.com/embed/m2tByyEwmxc?controls=1&modestbranding=1&rel=0",
+          title: "IMI Internship Insights",
+          desc: "Hear IMI students talk about real-world learning and the impact of mentorship during internships."
+        },
+        {
+          src: "https://www.youtube.com/embed/IApq2vmmmwY?controls=1&modestbranding=1&rel=0",
+          title: "Skill Growth and Transformation",
+          desc: "Students share how professional exposure shaped their skills, confidence, and readiness for the corporate world."
+        }
+      ].map((video, i) => (
+        <SwiperSlide key={i}>
+          <div
+            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+            onMouseEnter={() => window.swiperInstance?.autoplay.stop()}
+            onMouseLeave={() => window.swiperInstance?.autoplay.start()}
+          >
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <iframe
+                className="w-full h-full"
+                src={video.src}
+                title={video.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className="p-4 text-center">
+              <h4 className="font-semibold text-gray-900 text-base mb-1">{video.title}</h4>
+              <p className="text-sm text-gray-600 leading-snug">{video.desc}</p>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   </div>
 </section>
 

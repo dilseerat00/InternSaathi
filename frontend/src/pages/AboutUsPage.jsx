@@ -93,12 +93,13 @@ const AboutUsPage = () => {
     affiliationLink="https://www.linkedin.com/school/abes-engineering-college/"
   />
   <TeamMemberCard
-    photo="/team-pic/gautam.jpg"
-    name="Mr. Gautam Tanwar"
-    affiliation="IIT Bombay"
-    link="https://www.linkedin.com/in/gautam-tanwar1/"
-    affiliationLink="https://www.linkedin.com/school/sjmsomiitbombay/"
-  />
+  photo="/team-pic/gautam.jpg"
+  name="Mr. Gautam Tanwar"
+  affiliation="IIT Bombay • Ex-Infosys"
+  link="https://www.linkedin.com/in/gautam-tanwar1/"
+  affiliationLink="https://www.linkedin.com/school/sjmsomiitbombay/"
+/>
+
   <TeamMemberCard
     photo="/team-pic/ashwani.jpg"
     name="Mr. Ashwani Garg"
@@ -113,19 +114,20 @@ const AboutUsPage = () => {
 
 
 {/* Core Mission Section */}
-<section className="py-12 md:py-16 bg-orange-100 px-6">
+<section className="py-9 md:py-11 bg-orange-100 px-3">
   <div className="max-w-6xl mx-auto">
-    <h2 className="text-3xl font-poppins font-bold text-center text-gray-800 mb-8">
+    <h2 className="text-2xl font-poppins font-bold text-center text-gray-800 mb-8">
       From Internship to Naukri
     </h2>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+      
       {/* InternSaathi Block */}
       <div className="flex flex-col justify-between p-6 bg-orange-50 rounded-xl shadow-lg border-t-4 border-orange-500 hover:shadow-orange-300/60 transition-all duration-300">
-          <h3 className="text-xl font-poppins font-semibold text-teal-700 mb-3">
-            InternSaathi — Where Growth Begins
-          </h3>
-           <p className="text-base text-gray-700 leading-relaxed mb-2">
+        <h3 className="text-xl font-poppins font-semibold text-teal-700 mb-3">
+          💼 InternSaathi — Your Ultimate Start
+        </h3>
+        <p className="text-base text-gray-700 leading-relaxed mb-3">
           <a
             href="https://internsaathi.com/"
             target="_blank"
@@ -134,22 +136,23 @@ const AboutUsPage = () => {
           >
             InternSaathi
           </a>{" "}
-          empowers students to take their first professional leap. It connects young talent to
-          real-world internships that shape their skills, confidence, and career direction.
+          is where every college student begins their journey from classroom to corporate. 
+          Guided by <strong>Mr. Gautam Tanwar (Ex-Infosys, MBA – IIT Bombay)</strong> and 
+          <strong> Mr. Ashwani Garg, CHRO, Sunsys Techsol Pvt. Ltd.</strong>, it connects 
+          learners to verified internships, real mentorship, and direct PPO pathways — 
+          turning ambition into opportunity.
         </p>
         <p className="text-sm text-gray-600">
-          💡 Learn. Apply. Grow. Every internship is a stepping stone toward a brighter, more
-          employable future — and it all starts here.
+          🌱 Verified internships • ⚡ Smart-matching process • 🚀 PPO-ready experiences
         </p>
       </div>
 
       {/* NaukriSaathi Block */}
       <div className="flex flex-col justify-between p-6 bg-orange-50 rounded-xl shadow-lg border-t-4 border-orange-600 hover:shadow-orange-300/60 transition-all duration-300">
-        <div>
-          <h3 className="text-xl font-poppins font-semibold text-emerald-700 mb-3">
-            NaukriSaathi — Your Career Launchpad
-          </h3>
-          <p className="text-base text-gray-700 leading-relaxed mb-2">
+        <h3 className="text-xl font-poppins font-semibold text-emerald-700 mb-3">
+          🧭 NaukriSaathi — The Career Launchpad
+        </h3>
+        <p className="text-base text-gray-700 leading-relaxed mb-3">
           <a
             href="https://naukrisaathi.com/"
             target="_blank"
@@ -158,20 +161,34 @@ const AboutUsPage = () => {
           >
             NaukriSaathi
           </a>{" "}
-          carries the journey forward by offering curated, verified job opportunities for
-          emerging professionals. It bridges the gap between internship experience and
-          full-time employment with a focus on smooth, assured transitions.
+          helps students and graduates move from learning to earning. Backed by 
+          <strong> IIT–IIM mentors</strong> and expert guidance from industry leaders, it 
+          bridges the gap between internship experience and employment — empowering every 
+          learner to become career-ready.
         </p>
         <p className="text-sm text-gray-600">
-          🚀 Empowering young minds to move from “learning” to “earning” — helping them turn
-          potential into lasting success.
+          💼 Verified jobs • 🎯 Interview training • 🔄 Zero-cost access for all
         </p>
-        </div>
-          
+      </div>
     </div>
-  </div>
+
+    {/* Footer line */}
+<p className="text-center text-sm text-gray-600 mt-8">
+  Powered by{" "}
+  <a
+    href="https://sunsysglobal.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-semibold text-orange-700 hover:underline"
+  >
+    Sunsys Techsol Pvt. Ltd.
+  </a>{" "}
+  — enabling seamless career journeys through innovation, guidance, and mentorship.
+</p>
+
   </div>
 </section>
+
 
 {/* Campus Ambassadors Section */}
 <section className="py-12 bg-emerald-50 px-6 border-t border-gray-200">

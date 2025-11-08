@@ -118,3 +118,26 @@
 .animate-softPulse {
   animation: softPulse 3s infinite ease-in-out;
 }
+ 
+/* Change swiper arrows color to orange */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ea580c; /* Tailwind orange-500 */
+}
+
+/* Swiper pagination bullets */
+.swiper-pagination-bullet {
+  background-color: #ea580c; /* Orange color */
+  opacity: 0.6; /* Slightly transparent */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ea580c; /* Active bullet */
+  opacity: 1;
+}
+
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1.5rem; /* optional size adjustment */
+}
