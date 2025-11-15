@@ -83,7 +83,7 @@ const AboutUsPage = () => {
     name="Ms. Dilseerat Kaur"
     affiliation="Chandigarh Engineering College"
     link="https://www.linkedin.com/in/dilseerat-kaur-9502702b0/"
-    affiliationLink="https://www.linkedin.com/in/cgclandran/"
+    affiliationLink="https://www.linkedin.com/company/cec-cgc-landran"
   />
   <TeamMemberCard
     photo="/team-pic/abhirash.jpg"
@@ -189,25 +189,25 @@ const AboutUsPage = () => {
   </div>
 </section>
 
-
 {/* Campus Ambassadors Section */}
-<section className="py-12 bg-emerald-50 px-6 border-t border-gray-200">
+<section className="py-16 bg-emerald-50 px-6 border-t border-gray-200">
   <div className="max-w-6xl mx-auto text-center">
     <h3 className="text-3xl md:text-2xl font-poppins font-bold text-gray-800 mb-10">
       Meet Our Campus Ambassadors
     </h3>
 
-    <div className="flex justify-center items-center gap-10 flex-wrap">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
       {/* Ambassador 1 */}
       <a
         href="https://www.linkedin.com/in/hemanthkumarrottigawad"
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative transform transition-all duration-300 hover:scale-105"
+        className="group transform transition-all duration-300 hover:scale-105"
       >
         <img
           src="/logos/2.jpg"
-          className="w-65 h-78 rounded-2xl object-cover shadow-lg border-1 border-emerald-200 group-hover:shadow-emerald-300/80 transition-all duration-300"
+          alt="Hemanth Kumar"
+          className="w-64 h-78 rounded-2xl object-cover shadow-lg border border-emerald-200 group-hover:shadow-emerald-300/80 transition-all duration-300"
         />
       </a>
 
@@ -216,16 +216,46 @@ const AboutUsPage = () => {
         href="https://www.linkedin.com/in/anikasharmaiims/"
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative transform transition-all duration-300 hover:scale-105"
+        className="group transform transition-all duration-300 hover:scale-105"
       >
         <img
           src="/logos/3.jpg"
-          className="w-65 h-78 rounded-2xl object-cover shadow-lg border-2 border-emerald-200 group-hover:shadow-emerald-300/80 transition-all duration-300"
+          alt="Anika Sharma"
+          className="w-64 h-78rounded-2xl object-cover shadow-lg border border-emerald-200 group-hover:shadow-emerald-300/80 transition-all duration-300"
+        />
+      </a>
+
+      {/* Ambassador 3 */}
+      <a
+        href="https://www.linkedin.com/in/shreya-bansal-a49995310/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group transform transition-all duration-300 hover:scale-105"
+      >
+        <img
+          src="/logos/8.jpg"
+          alt="Shreya"
+          className="w-64 h-78 rounded-2xl object-cover shadow-lg border border-emerald-200 group-hover:shadow-emerald-300/80 transition-all duration-300"
+        />
+      </a>
+
+      {/* Ambassador 4 */}
+      <a
+        href="https://www.linkedin.com/in/pari-raghuwanshi/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group transform transition-all duration-300 hover:scale-105"
+      >
+        <img
+          src="/logos/9.jpg"
+          alt="Pari"
+          className="w-64 h-78 rounded-2xl object-cover shadow-lg border border-emerald-200 group-hover:shadow-emerald-300/80 transition-all duration-300"
         />
       </a>
     </div>
   </div>
 </section>
+
 
 
 

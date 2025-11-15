@@ -72,6 +72,8 @@ const collegeLogos = [
     "/logos/s.png",
     "/logos/t.png",
     "/logos/u.jpg",
+    "/logos/v.png",
+    "/logos/w.jpg",
 ];
 // ------------------------ 
 
@@ -220,6 +222,52 @@ useEffect(() => {
   return () => clearInterval(interval);
 }, []);
 
+const ReelCard = ({ index, item }) => {
+  const [isPlaying, setIsPlaying] = React.useState(false);
+
+  return (
+    <div className="relative flex flex-col items-center justify-center rounded-2xl overflow-hidden shadow-lg bg-black group transition-all duration-300 hover:shadow-xl">
+      {/* View on Instagram Button
+      <a
+        href={item.video}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-2 right-2 bg-orange-500 text-white text-xs px-3 py-1 rounded-full hover:bg-orange-600 z-10"
+      >
+        View on Instagram
+      </a>
+
+      {/* Video */}
+      <video
+        src={item.src}
+        className="w-full h-[500px] object-cover cursor-pointer"
+        muted
+        loop
+        playsInline
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsPlaying(!isPlaying);
+          if (!isPlaying) e.target.play();
+          else e.target.pause();
+        }}
+      />
+
+      {/* Play Button Overlay */}
+      {!isPlaying && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm">
+          <button
+            onClick={() => setIsPlaying(true)}
+            className="bg-orange-500 text-white rounded-full p-4 text-lg font-semibold hover:bg-orange-600"
+          >
+            ▶
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+
 
   return ( 
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 font-inter relative overflow-x-hidden"> 
@@ -298,54 +346,72 @@ useEffect(() => {
       }}
       onSwiper={(swiper) => (window.swiperInstance = swiper)}
     >
-      {[
-        {
-          src: "https://www.youtube.com/embed/sHi2MgKtr7U?controls=1&modestbranding=1&rel=0",
-          title: "IIM Student Experience",
-          desc: "See how impactful internships turn learning into leadership and opportunity."
-        },
-        {
-          src: "https://www.youtube.com/embed/5ssoQQ6ypJ4?controls=1&modestbranding=1&rel=0",
-          title: "IIM Perspective",
-          desc: "Discover how mentorship and real-world projects with us drive growth and confidence."
-        },
-        {
-          src: "https://www.youtube.com/embed/R-Ha7OwBJkk?controls=1&modestbranding=1&rel=0",
-          title: "Career Growth",
-          desc: "When opportunity meets mentorship, transformation begins."
-        },
-        {
-          src: "https://www.youtube.com/embed/fr4XTXQE0u0?controls=1&modestbranding=1&rel=0",
-          title: "IIM Learner Insights",
-          desc: "Listen to an IIM student share his learnings and real-world exposure through InternSaathi."
-        },
-        {
-          src: "https://www.youtube.com/embed/uVxFhLa3YXo?controls=1&modestbranding=1&rel=0",
-          title: "IMI Bhubaneswar",
-          desc: "IMI student shares her enriching internship experience and growth journey."
-        },
-        {
-          src: "https://www.youtube.com/embed/31Ip3STqkeo?controls=1&modestbranding=1&rel=0",
-          title: "Journey Beyond Limits",
-          desc: "Dream big. Start small. Learn and grow with the right support."
-        },
+      {
+      [
+  {
+    src: "https://www.youtube.com/embed/sHi2MgKtr7U?controls=1&modestbranding=1&rel=0",
+    title: "IIM Student Experience",
+    desc: "See how impactful internships turn learning into leadership and opportunity."
+  },
+  {
+    src: "https://www.youtube.com/embed/5ssoQQ6ypJ4?controls=1&modestbranding=1&rel=0",
+    title: "IIM Perspective",
+    desc: "Discover how mentorship and real-world projects with us drive growth and confidence."
+  },
+  {
+    src: "https://www.youtube.com/embed/R-Ha7OwBJkk?controls=1&modestbranding=1&rel=0",
+    title: "Career Growth",
+    desc: "When opportunity meets mentorship, transformation begins."
+  },
+  {
+    src: "https://www.youtube.com/embed/fr4XTXQE0u0?controls=1&modestbranding=1&rel=0",
+    title: "IIM Learner Insights",
+    desc: "Listen to an IIM student share his learnings and real-world exposure through InternSaathi."
+  },
+  {
+    src: "https://www.youtube.com/embed/uVxFhLa3YXo?controls=1&modestbranding=1&rel=0",
+    title: "IMI Bhubaneswar",
+    desc: "IMI student shares her enriching internship experience and growth journey."
+  },
+  {
+    src: "https://www.youtube.com/embed/31Ip3STqkeo?controls=1&modestbranding=1&rel=0",
+    title: "Journey Beyond Limits",
+    desc: "Dream big. Start small. Learn and grow with the right support."
+  },
+  {
+    src: "https://www.youtube.com/embed/SgAiarMEWAk?controls=1&modestbranding=1&rel=0",
+    title: "IMI Placement Journey",
+    desc: "Discover how InternSaathi guided IMI students towards successful PPO offers and career breakthroughs."
+  },
+  {
+    src: "https://www.youtube.com/embed/m2tByyEwmxc?controls=1&modestbranding=1&rel=0",
+    title: "IMI Internship Insights",
+    desc: "Hear IMI students talk about real-world learning and the impact of mentorship during internships."
+  },
+  {
+    src: "https://www.youtube.com/embed/IApq2vmmmwY?controls=1&modestbranding=1&rel=0",
+    title: "Skill Growth and Transformation",
+    desc: "Students share how professional exposure shaped their skills, confidence, and readiness for the corporate world."
+  },
 
-        {
-          src: "https://www.youtube.com/embed/SgAiarMEWAk?controls=1&modestbranding=1&rel=0",
-          title: "IMI Placement Journey",
-          desc: "Discover how InternSaathi guided IMI students towards successful PPO offers and career breakthroughs."
-        },
-        {
-          src: "https://www.youtube.com/embed/m2tByyEwmxc?controls=1&modestbranding=1&rel=0",
-          title: "IMI Internship Insights",
-          desc: "Hear IMI students talk about real-world learning and the impact of mentorship during internships."
-        },
-        {
-          src: "https://www.youtube.com/embed/IApq2vmmmwY?controls=1&modestbranding=1&rel=0",
-          title: "Skill Growth and Transformation",
-          desc: "Students share how professional exposure shaped their skills, confidence, and readiness for the corporate world."
-        }
-      ].map((video, i) => (
+  // ⭐ NEW SHORTS ADDED BELOW ⭐
+  {
+    src: "https://www.youtube.com/embed/GG-K_Ny1W9U?controls=1&modestbranding=1&rel=0",
+    title: "Sales & Communication Skills",
+    desc: "This short explains why communication is the backbone of sales and how it drives success."
+  },
+  {
+    src: "https://www.youtube.com/embed/TYQGkHe5bC0?controls=1&modestbranding=1&rel=0",
+    title: "Finance Intern Insights",
+    desc: "A finance intern shares key financial concepts and real-world learning gained during the internship."
+  },
+  {
+    src: "https://www.youtube.com/embed/7E8-aDyx5Jg?controls=1&modestbranding=1&rel=0",
+    title: "Finance Intern Experience",
+    desc: "Finance intern talks about hands-on learning and professional growth."
+  }
+]
+.map((video, i) => (
         <SwiperSlide key={i}>
           <div
             className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
@@ -372,6 +438,64 @@ useEffect(() => {
     </Swiper>
   </div>
 </section>
+
+{/* 4. INTERN SAATHI REELS SECTION */}
+<section className="py-10 bg-white border-t border-gray-200">
+  <h3 className="text-2xl md:text-3xl font-poppins font-bold text-center text-gray-800 mb-8">
+    InternSaathi Highlights
+  </h3>
+
+  <div className="max-w-5xl mx-auto px-6">
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      spaceBetween={20}
+      slidesPerView={1}
+      loop={true}
+      speed={800}
+      autoplay={{ delay: 4000, disableOnInteraction: false }}
+      pagination={{ clickable: true }}
+      navigation
+      breakpoints={{
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      }}
+      onSwiper={(swiper) => (window.reelSwiper = swiper)}
+    >
+      {[
+        "https://www.instagram.com/reel/DQtbDxBjKxw/",
+        "https://www.instagram.com/reel/DQtYzpdjG3L/",
+        "https://www.instagram.com/reel/DQtaurMDKHg/",
+        "https://www.instagram.com/reel/DQvoFOrjCQz/",
+        "https://www.instagram.com/reel/DQvnFdvDKPE/",
+        "https://www.instagram.com/reel/DQvofmejAPY/",
+        "https://www.instagram.com/reel/DQvmqfBDAnP/",
+      ].map((url, i) => (
+        <SwiperSlide key={i}>
+          <div
+            className="relative flex flex-col items-center bg-transparent rounded-2xl overflow-hidden transition-all duration-300"
+            onMouseEnter={() => window.reelSwiper?.autoplay.stop()}
+            onMouseLeave={() => window.reelSwiper?.autoplay.start()}
+          >
+            {/* Clean Reel Embed (no captions/comments) */}
+            <iframe
+              src={`${url}embed`}
+              className="w-full h-[480px] rounded-2xl border-none"
+              style={{
+                maxHeight: "480px",
+                overflow: "hidden",
+              }}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</section>
+
+
 
 
 {/* ABOUT US SECTION - Aesthetic and Engaging
